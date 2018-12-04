@@ -1,0 +1,38 @@
+{
+  "name": "huge",
+  "version": "0.1.0",
+  "description": "A JupyterLab extension for rendering my_mimetype files.",
+  "author": "Me <Me>",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "jupyterlab": {
+    "mimeExtension": true
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "prepare": "npm run clean && npm run build",
+    "watch": "tsc -w",
+    "extension:install": "jupyter labextension install huge",
+    "extension:uninstall": "jupyter labextension uninstall  huge",
+    "extension:enable": "jupyter labextension enable huge",
+    "extension:disable": "jupyter labextension disable huge"
+  },
+  "dependencies": {
+    "@jupyterlab/rendermime-interfaces": "^1.0.0",
+    "@phosphor/widgets": "^1.5.0"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "typescript": "~2.9.2"
+  }
+}
