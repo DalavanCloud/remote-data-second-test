@@ -16,6 +16,34 @@ const MIME_TYPE = 'application/vnd.jupyter.dataset+json';
  */
 const CLASS_NAME = 'mimerenderer-my_mimetype';
 
+
+
+export class VideoRenderer extends Widget
+  implements IRenderMime.IRenderer {
+  constructor() {
+    super();
+    this.addClass('jp-VideoPlayer');
+    const video = document.createElement('video');
+    video.setAttribute('controls', '');
+    this.node.appendChild(video);
+  }
+
+  /**
+   * Render the data.
+   */
+    renderModel(model: IRenderMime.IMimeModel): Promise<void> {
+      console.log(model);
+        const video = this.node.querySelector('video')!;
+        let url = JSON.parse(model.data[MIME_TYPE] as string)['stream_url'];
+        console.log('model is', model)
+        console.log(video)
+        video.setAttribute('src', url);
+      //video.setAttribute('type', model.mimeType);
+    return Promise.resolve(void 0);
+  }
+}
+
+
 /**
  * A widget for rendering my_mimetype.
  */
@@ -35,6 +63,7 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
   renderModel(model: IRenderMime.IMimeModel): Promise<void> {
     
     let data = model.data[this._mimeType] as string;
+    console.log('data')
     this.node.textContent = data.slice(0, 16384);
     
     return Promise.resolve();
@@ -49,7 +78,7 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 export const rendererFactory: IRenderMime.IRendererFactory = {
   safe: true,
   mimeTypes: [MIME_TYPE],
-  createRenderer: options => new OutputWidget(options)
+  createRenderer: options => new VideoRenderer()
 };
 
 /**
@@ -64,7 +93,7 @@ const extension: IRenderMime.IExtension = {
     {
       name: 'my_mimetype',
       mimeTypes: [MIME_TYPE],
-      extensions: ['.huge']
+      extensions: ['.mp4']
     }
   ],
   documentWidgetFactoryOptions: {

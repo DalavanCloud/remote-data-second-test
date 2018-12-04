@@ -64,12 +64,16 @@ class RemoteLocalFileManager(LargeFileManager):
             raise ValueError(
                 "could not stat `{}`, not risking to send a loarge amount of data to the frontend."
             )
-        if model["size"] >= self.threshold or model['path'].endswith("big"):
+        print(path)
+        if model["size"] >= self.threshold or model['path'].endswith("mp4"):
             model["inner_mimetype"] = model["mimetype"]
             model["mimetype"] = MIMETYPE
-            model['content'] = MIMETYPE
+            import json
+            model['content'] = json.dumps({
+                'stream_url':'/files/'+path #.replace('mp4', 'mpxx')
+                                           
+                                           })
             model['format'] = MIMETYPE
-            print("end with big returning model:", model)
             return model
 
         # default logic.
