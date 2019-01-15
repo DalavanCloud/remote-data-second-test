@@ -39,7 +39,13 @@ pip install -e .
 set the following in your notebook config file
 
 ```
-c.NotebookApp.contents_manager_class = RemoteContentmanager
+c.NotebookApp.contents_manager_class='remotecontentmanager.RemoteLocalFileManager'
+```
+
+Or directly from the command line:
+
+```
+jupyter lab --NotebookApp.contents_manager_class=remotecontentmanager.RemoteLocalFileManager
 ```
 
 This will treat any file which [Add heuristic there] as a large/remote file, and
