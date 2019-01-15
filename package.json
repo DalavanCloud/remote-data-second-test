@@ -1,5 +1,5 @@
 {
-  "name": "huge",
+  "name": "jupyterlab-remote-data",
   "version": "0.1.0",
   "description": "A JupyterLab extension for rendering my_mimetype files.",
   "author": "Me <Me>",
@@ -22,10 +22,10 @@
     "build": "tsc",
     "prepare": "npm run clean && npm run build",
     "watch": "tsc -w",
-    "extension:install": "jupyter labextension install huge",
-    "extension:uninstall": "jupyter labextension uninstall  huge",
-    "extension:enable": "jupyter labextension enable huge",
-    "extension:disable": "jupyter labextension disable huge"
+    "extension:install": "jupyter labextension install jupyterlab-remote-data",
+    "extension:uninstall": "jupyter labextension uninstall  jupyterlab-remote-data",
+    "extension:enable": "jupyter labextension enable jupyterlab-remote-data",
+    "extension:disable": "jupyter labextension disable jupyterlab-remote-data"
   },
   "dependencies": {
     "@jupyterlab/rendermime-interfaces": "^1.0.0",

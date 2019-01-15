@@ -1,4 +1,4 @@
-# huge
+# jupyterlab-remote-data
 
 A JupyterLab extension for rendering my_mimetype files.
 
@@ -9,7 +9,7 @@ A JupyterLab extension for rendering my_mimetype files.
 ## Installation
 
 ```bash
-jupyter labextension install huge
+jupyter labextension install jupyterlab-remote-data
 ```
 
 ## Development

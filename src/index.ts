@@ -85,7 +85,7 @@ export const rendererFactory: IRenderMime.IRendererFactory = {
  * Extension definition.
  */
 const extension: IRenderMime.IExtension = {
-  id: 'huge:plugin',
+  id: 'jupyterlab-remote-data:plugin',
   rendererFactory,
   rank: 0,
   dataType: 'string',
